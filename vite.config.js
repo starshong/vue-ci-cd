@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     outDir: 'html'
+  },
+  server: {
+    port: 1234
   }
 })

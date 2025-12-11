@@ -1,5 +1,18 @@
 <script setup>
+import { generateColors } from '@element-plus/colors'
 import HelloWorld from './components/HelloWorld.vue'
+
+const { primary, success, warning, danger, error, info } =
+  generateColors('#0052d9')
+
+// console.log('primary ', primary)
+
+function handleColors() {
+  const themePrimary = primary
+    .map((item, index) => `$h-primary-${index}: ${item} !default;`)
+    .join('\n')
+  console.log(themePrimary)
+}
 </script>
 
 <template>
@@ -10,6 +23,8 @@ import HelloWorld from './components/HelloWorld.vue'
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
+
+    <button @click="handleColors">按钮</button>
   </div>
   <HelloWorld msg="Vite + Vue" />
   <h1>测试CI/CD</h1>
